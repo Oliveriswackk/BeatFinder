@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    color: white;
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  .header {
+    background-image: url('../imagenes/vinyl-record-and-headphone-over-wooden-table-audi-2023-11-27-05-32-32-utc.jpg');
+    height: 800px;
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    color: white;
+  }
+  
+  .header-title {
+    margin-top: 100px;
+    margin-bottom: none;
+    font-size: 70px;
+    color: rgba(214, 214, 214, 0.76);
+
+  }
+  
+  .header-subtitle {
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.76);
+
+  }
+  
+  .button-encuesta{
+    background-color:rgba(84, 51, 41, 0.78);
+    color: white;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .button:hover {
+    background-color: #555;
+  }
+  
+  .categories-section {
+    padding: 50px 20px;
+    height: 500px;
+    background-image: url('../imagenes/segments-of-vinyl-record-spinning-macro-view-pla-2024-08-14-05-01-33-utc\ \(1\).jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    position: relative;
+  }
+  
+  .categories-title {
+    color: rgba(214, 214, 214, 0.8);
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .categories-container {
+    display: flex;
+    margin-top: 100px;
+    justify-content:space-around;
+    flex-wrap: wrap;
+  }
+  
+  .category {
+
+    backdrop-filter: blur(4px);
+    background: rgba(48, 48, 48, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    width: 150px;
+    text-align: center;
+    margin: 10px;
+  }
+  
+  .footer {
+    background-color: #111;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .footer-column {
+    margin: 10px;
+  }
+  
+  .footer-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-link {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 5px 0;
+  }
+  
+  .footer-link:hover {
+    text-decoration: underline;
+  }
+
+  .imagenesCat{
+    width: 100%;
+    height: 150px;
+  }
+  
