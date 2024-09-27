@@ -1,5 +1,6 @@
 import React from 'react';
-import './style.css';
+import '../Styles/Home.css';
+
 
 import imagen1 from '../imagenes/imagen1.png'; 
 import imagen2 from '../imagenes/imagen2.png'; 
