@@ -1,5 +1,10 @@
 .categories-section {
-    padding: 40px 20px;
+  background-image: url('../../images/segments-of-vinyl-record-spinning-macro-view-pla-2024-08-14-05-01-33-utc\ \(1\).jpg');
+  background-size:cover;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-attachment:local;   
+  padding: 40px 20px;
     text-align: center;
   }
   

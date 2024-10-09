@@ -1,14 +1,41 @@
 .button-encuesta {
-    padding: 10px 20px;
-    font-size: 1em;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .button-encuesta:hover {
-    background-color: #0056b3;
-  }
-  
+  min-width: 120px;
+  position: relative;
+  cursor: pointer;
+  padding: 15px 20px;
+  border: 0;
+  border-radius: 7px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  background-color: rgba(95, 37, 5, 0.682);
+  backdrop-filter: blur(6px);
+  color: white;
+  transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1);
+  font-size: 15px;
+}
+
+.button-encuesta::before {
+  content: "";
+  width: 70%;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0.2;
+  transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
+.button-encuesta:hover {
+  color: rgb(255, 255, 255, 1);
+  transform: scale(1.1) translateY(-3px);
+}
+
+.button-encuesta:hover::before {
+  opacity: 1;
+}
