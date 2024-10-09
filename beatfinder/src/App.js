@@ -1,21 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-import Home from './Componentes/Home';
-import Artistas_Destacados from './Componentes/Artistas_Destacados';
+import React from 'react';
+import './styles/Home.css';
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/Header/Header';
+import CategoriesSection from './components/CategoriesSection/CategoriesSection';
+import Footer from './components/Footer/Footer';
 
-
-function App() {
+const App = () => {
   return (
-    
-    <div className="App">
-      <header className="App-header">
-       
-        <Home />
-      </header>
+    <div className="container">
+      <Header />
+      <CategoriesSection />
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
