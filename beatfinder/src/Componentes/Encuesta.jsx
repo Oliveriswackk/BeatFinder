@@ -1,4 +1,5 @@
-import '../App.css';
+import '../Styles/Encuesta.css';
+
 
 import React, { useState } from "react";
 
@@ -144,14 +145,19 @@ function Encuesta() {
   };
 
   return (
+    <>
+    <div>
+        <h1>Soy el header. Ahorita me modificas</h1>
+    </div>
+    
     <div className="quiz">
       {showResult ? (
-        <div className="result-section">
+          <div className="result-section">
           <h2>Resultado: {getGenre()}</h2>
           {/* <p>Puntaje total: {totalPoints}</p> */}
         </div>
       ) : (
-        <>
+          <>
           <div className="question-section">
             <div className="question-count">
               <span>Pregunta {currentQuestion + 1}</span>/{questions.length}
@@ -162,10 +168,10 @@ function Encuesta() {
           </div>
           <div className="answer-section">
             {questions[currentQuestion].answerOptions.map((answerOption, index) => (
-              <button
+                <button
                 key={index}
                 onClick={() => handleAnswerClick(answerOption.points)}
-              >
+                >
                 {answerOption.answerText}
               </button>
             ))}
@@ -173,24 +179,8 @@ function Encuesta() {
         </>
       )}
     </div>
+      </>
   );
 }
 
 export default Encuesta;
-
-
-
-
-// function App() {
-//   return (
-    
-//     <div className="App">
-//       <header className="App-header">
-       
-//         <Home />
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
