@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Styles/Home.css';
+import { useNavigate } from 'react-router-dom';
 
 
 import imagen1 from '../imagenes/imagen1.png'; 
@@ -7,12 +8,17 @@ import imagen2 from '../imagenes/imagen2.png';
 import imagen3 from '../imagenes/imagen3.png'; 
 
 const App = () => {
+  
+  const navigate = useNavigate();
+  const handleEncuestaClick = () => {
+    navigate('/encuesta'); // Navigate to the 'Encuesta' page
+  };
   return (
     <div className="container">
       <header className="header">
         <h1 className="header-title">BeatFinder</h1>
         <p className="header-subtitle">Tu brújula personal</p>
-        <button className="button-encuesta">Encuesta</button>
+        <button className="button-encuesta" onClick={handleEncuestaClick}>Encuesta</button>
       </header>
       
       <section className="categories-section">
