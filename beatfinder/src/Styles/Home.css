@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #111;
+    color: #fff;
+  }
+  
+  /* Header Section */
+  .header {
+    position: relative;
+    height: 100vh;
+    background: url('../images/vinyl-record-and-headphone-over-wooden-table-audi-2023-11-27-05-32-32-utc.jpg') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .header-title {
+    font-size: 4rem;
+    margin: 0;
+    font-weight: 700;
+  }
+  
+  .header-subtitle {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+  
+  .button-encuesta {
+    background-color: #7e572b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .button-encuesta:hover {
+    background-color: #9f7137;
+  }
+  
+  /* Categories Section */
+  .categories-section {
+    height: 60vh;
+    padding: 50px 0;
+    background-color: #222;
+    text-align: center;
+    background: url('../images/segments-of-vinyl-record-spinning-macro-view-pla-2024-08-14-05-01-33-utc\ \(1\).jpg') no-repeat center center/cover;
+
+  }
+  
+  .categories-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+  
+  .categories-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .category {
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+    height: 180px;
+    width: 150px;
+  }
+  
+  .category:hover {
+    transform: scale(1.05);
+  }
+  
+  .imagenesCat {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+  }
+  
+  /* Footer Section */
+  .footer {
+    height: 200px;
+    background-color: #0f0f0f;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    color: #ccc;
+  }
+  
+  .footer-column {
+    flex: 1;
+  }
+  
+  .footer-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    margin-top: 70px;
+  }
+  
+  .footer-link {
+    display: block;
+    margin: 5px 0;
+    color: #aaa;
+    text-decoration: none;
+  }
+  
+  .footer-link:hover {
+    text-decoration: underline;
+  }
+  
+  .Logo img {
+    width: 30px;
+  }
+  
