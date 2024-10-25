@@ -1,20 +1,21 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import logo from './logo.svg';
+import './App.css';
 import Home from './Componentes/Home';
 import Artistas_Destacados from './Componentes/Artistas_Destacados';
-import Encuesta from './Componentes/Encuesta';
-import './App.css';
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 
 function App() {
   return (
+    
     <div className="App">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/encuesta" element={<Encuesta />} />
-          {/* Add more routes as needed */}
-        </Routes>
+      <header className="App-header">
+       
+        <Home />
+      </header>
     </div>
   );
-}
+};
 
 export default App;
