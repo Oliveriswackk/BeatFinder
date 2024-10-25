@@ -1,16 +1,22 @@
 import React from 'react';
-import './styles/Home.css';
+import logo from './logo.svg';
+import Encuesta from './Componentes/Encuesta';
+import './App.css';
+import Home from './Componentes/Home';
+import Artistas_Destacados from './Componentes/Artistas_Destacados';
 
-import Header from './components/Header/Header';
-import CategoriesSection from './components/CategoriesSection/CategoriesSection';
-import Footer from './components/Footer/Footer';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-const App = () => {
+
+function App() {
   return (
-    <div className="container">
-      <Header />
-      <CategoriesSection />
-      <Footer />
+    
+    <div className="App">
+      <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/encuesta" element={<Encuesta />} />
+          {/* Add more routes as needed */}
+        </Routes>
     </div>
   );
 };
