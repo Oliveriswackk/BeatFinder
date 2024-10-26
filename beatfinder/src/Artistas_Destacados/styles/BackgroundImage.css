@@ -1,0 +1,18 @@
+.background-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    color: white;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+  }
+  
+  .artist-info {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 8px;
+  }
+  

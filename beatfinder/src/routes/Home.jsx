@@ -7,12 +7,18 @@ import imagen1 from '../images/imagen1.png';
 import imagen2 from '../images/imagen2.png'; 
 import imagen3 from '../images/imagen3.png'; 
 
-const App = () => {
+const Home = () => {
   
   const navigate = useNavigate();
+
   const handleEncuestaClick = () => {
-    navigate('/encuesta'); // Navegar entre las paginas de la encuesta
+    navigate('/encuesta'); // Navegar entre las páginas de la encuesta
   };
+
+  const handleArtistasDestacadosClick = () => {
+    navigate('/artistas-destacados'); // Navegar a la página de artistas destacados
+  };
+
   return (
     <div className="container">
       <header className="header">
@@ -25,16 +31,16 @@ const App = () => {
         <h2 className="categories-title">Categorías</h2>
         <div className="categories-container">
           
-          <div className="category">
+          <div className="category" onClick={handleArtistasDestacadosClick}>
             <img className='imagenesCat' src={imagen1} alt="ArtistasDestacados" />
             <h3>Artistas Destacados</h3>
           </div>
           <div className="category">
-          <img  className='imagenesCat' src={imagen2} alt="Top Global" />
+            <img className='imagenesCat' src={imagen2} alt="Top Global" />
             <h3>Top 69 Global</h3>
           </div>
           <div className="category">
-          <img className='imagenesCat' src={imagen3} alt="Random" />
+            <img className='imagenesCat' src={imagen3} alt="Random" />
             <h3>Radio Spin</h3>
           </div>
         </div>
@@ -67,4 +73,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Home;
