@@ -145,7 +145,7 @@ function Encuesta() {
   };
 
   return (
-    <>
+    <div className='juan'>
     <div>
         <h1>Soy el header. Ahorita me modificas</h1>
     </div>
@@ -158,9 +158,11 @@ function Encuesta() {
         </div>
       ) : (
           <>
+          
           <div className="question-section">
             <div className="question-count">
-              <span>Pregunta {currentQuestion + 1}</span>/{questions.length}
+              <span>Pregunta {currentQuestion + 1}/{questions.length}</span>
+              <ProgressBar value={currentQuestion} max={questions.length-1}/>
             </div>
             <div className="question-text">
               {questions[currentQuestion].questionText}
@@ -179,8 +181,16 @@ function Encuesta() {
         </>
       )}
     </div>
-      </>
+      </div>
   );
 }
 
+function ProgressBar({ value, max }) {
+    return (
+        <div className="progress-bar">
+          <div className="progress-bar-completed" style={{ width: `${(value / max) * 100}%` }}>
+          </div>
+        </div>
+    );
+}
 export default Encuesta;
