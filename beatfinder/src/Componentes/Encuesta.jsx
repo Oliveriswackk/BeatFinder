@@ -170,7 +170,7 @@ function Encuesta() {
           </div>
           <div className="answer-section">
             {questions[currentQuestion].answerOptions.map((answerOption, index) => (
-                <button
+                <button className='claseButton'
                 key={index}
                 onClick={() => handleAnswerClick(answerOption.points)}
                 >
