@@ -1,0 +1,19 @@
+.category {
+    width: 200px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .imagenesCat {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .category h3 {
+    margin-top: 15px;
+    font-size: 1.2em;
+  }
+  
