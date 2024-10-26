@@ -1,7 +1,8 @@
 .artist-card {
     text-align: center;
     cursor: pointer;
-    width: 150px;
+    width: 300px;
+
   }
   
   .artist-card img {
