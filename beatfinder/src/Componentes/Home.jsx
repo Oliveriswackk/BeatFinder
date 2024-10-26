@@ -3,9 +3,9 @@ import '../Styles/Home.css';
 import { useNavigate } from 'react-router-dom';
 
 
-import imagen1 from '../imagenes/imagen1.png'; 
-import imagen2 from '../imagenes/imagen2.png'; 
-import imagen3 from '../imagenes/imagen3.png'; 
+import imagen1 from '../images/imagen1.png'; 
+import imagen2 from '../images/imagen2.png'; 
+import imagen3 from '../images/imagen3.png'; 
 
 const App = () => {
   
