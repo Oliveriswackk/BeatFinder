@@ -38,7 +38,7 @@
 
 /* BACKGROUND IMAGE */
 .juan {
-  background-image: url('../images/EncuestaBckgrnd.png');
+  /* background-image: url('../images/EncuestaBckgrnd.png'); */
   background-size: cover;
   background-position: center;
   min-height: 100vh;
