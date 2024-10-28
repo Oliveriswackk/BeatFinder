@@ -1,6 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
-import Encuesta from './Componentes/Encuesta';
 import './App.css';
 import Home from './routes/Home';
 import Encuesta from './routes/Encuesta';
