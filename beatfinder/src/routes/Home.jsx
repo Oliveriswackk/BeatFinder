@@ -19,6 +19,14 @@ const Home = () => {
     navigate('/artistas-destacados'); // Navegar a la página de artistas destacados
   };
 
+  const handleTop69 = () => {
+    navigate('/top69'); // Navegar a la página de artistas destacados
+  };
+
+  const handleRadioSpin = () => {
+    navigate('/radio-spin'); // Navegar a la página de artistas destacados
+  };
+
   return (
     <div className="container">
       <header className="header">
@@ -35,11 +43,11 @@ const Home = () => {
             <img className='imagenesCat' src={imagen1} alt="ArtistasDestacados" />
             <h3>Artistas Destacados</h3>
           </div>
-          <div className="category">
+          <div className="category" onClick={handleTop69}>
             <img className='imagenesCat' src={imagen2} alt="Top Global" />
             <h3>Top 69 Global</h3>
           </div>
-          <div className="category">
+          <div className="category" onClick={handleRadioSpin}>
             <img className='imagenesCat' src={imagen3} alt="Random" />
             <h3>Radio Spin</h3>
           </div>
@@ -55,6 +63,9 @@ const Home = () => {
           <a className="footer-link" href="https://www.instagram.com/soulless_.cat/">UI design | Oliver Coronado</a>
           <a className="footer-link" href="https://www.instagram.com/soulless_.cat/">UX design | Oliver Coronado</a>
           <a className="footer-link" href="https://www.chess.com/es">Back-End | Jorge Chavira</a>
+          <a className="footer-link" href="https://www.instagram.com/olympuscheerco/">DataBase | Maria Jose Duran</a>
+          <a className="footer-link" href="https://www.starmedica.com/s/chihuahua">Proyect Manager | Emmanuel Rodriguez</a>
+
         </div>
         <div className="footer-column">
           <h3 className="footer-title">Términos y condiciones</h3>
