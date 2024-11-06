@@ -16,15 +16,15 @@ const Home = () => {
   };
 
   const handleArtistasDestacadosClick = () => {
-    navigate('/artistas-destacados'); // Navegar a la página de artistas destacados
+    navigate('/artistas-destacados'); 
   };
 
-  const handleTop69 = () => {
-    navigate('/top69'); // Navegar a la página de artistas destacados
+  const handleTop69Click = () => {
+    navigate('/top69'); 
   };
 
-  const handleRadioSpin = () => {
-    navigate('/radio-spin'); // Navegar a la página de artistas destacados
+  const handleRadioSpinClick = () => {
+    navigate('/radio-spin'); 
   };
 
   return (
@@ -43,11 +43,11 @@ const Home = () => {
             <img className='imagenesCat' src={imagen1} alt="ArtistasDestacados" />
             <h3>Artistas Destacados</h3>
           </div>
-          <div className="category" onClick={handleTop69}>
+          <div className="category" onClick={handleTop69Click}>
             <img className='imagenesCat' src={imagen2} alt="Top Global" />
             <h3>Top 69 Global</h3>
           </div>
-          <div className="category" onClick={handleRadioSpin}>
+          <div className="category" onClick={handleRadioSpinClick}>
             <img className='imagenesCat' src={imagen3} alt="Random" />
             <h3>Radio Spin</h3>
           </div>

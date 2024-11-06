@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from '../Artistas_Destacados/components/Navbar';
+import Navbar from '../components/Navbar/Navbar';
 import BackgroundImage from '../Artistas_Destacados/components/BackgroundImage';
 import ArtistCard from '../Artistas_Destacados/components/ArtistCard';
 import Footer from '../Artistas_Destacados/components/Footer';

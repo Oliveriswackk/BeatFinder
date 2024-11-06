@@ -1,9 +1,10 @@
+import Navbar from '../components/Navbar/Navbar';
 import '../Styles/Encuesta.css';
-
 
 import React, { useState } from "react";
 
 function Encuesta() {
+ 
   const questions = [
     {
       questionText: "¿Qué actividad prefieres hacer mientras escuchas música?",
@@ -146,10 +147,7 @@ function Encuesta() {
 
   return (
     <div className='juan'>
-    <div>
-        <h1>Soy el header. Ahorita me modificas</h1>
-    </div>
-    
+     <Navbar/>
     <div className="quiz">
       {showResult ? (
           <div className="result-section">

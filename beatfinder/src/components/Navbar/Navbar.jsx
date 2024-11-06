@@ -1,11 +1,11 @@
 import React from 'react';
-import '../styles/Navbar.css';
+import '../Navbar/Navbar.css';
 
 const Navbar = () => (
   <nav className="navbar">
-    <a href="/">Radio Spin</a>
+    <a href="/radio-spin">Radio Spin</a>
     <a href="/">BeatFinder</a>
-    <a href="/">Top 69</a>
+    <a href="/artistas-destacados">Artista Destacado</a>
   </nav>
 );
 
