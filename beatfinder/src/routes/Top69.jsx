@@ -1,11 +1,13 @@
 import Navbar from '../components/Navbar/Navbar';
-import Kira from '../Top69/components/Kira';
+import Banner from '../../src/Top69/components/Banner';
+import TrackList from '../../src/Top69/components/TrackList';
 
 const Top69 = () => {
     return (
       <div className="Top69">
-        <Navbar/>
-        <Kira/>
+        <Navbar />
+        <Banner />
+        <TrackList/>
       </div>
     );
   };

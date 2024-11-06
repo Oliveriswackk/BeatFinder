@@ -1,0 +1,64 @@
+.track-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.track-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.track-position {
+    color: white;
+    font-size: 1.125rem;
+    font-weight: medium;
+}
+
+.album-art-container {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+}
+
+.album-art {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+}
+
+.play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.track-item:hover .play-overlay {
+    opacity: 1;
+}
+
+.play-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: white;
+}
+
+.track-info {
+    flex: 1;
+}
+
+.track-title {
+    color: white;
+    font-size: 0.875rem;
+}
+
+.track-artist {
+    color: #ccc;
+    font-size: 0.75rem;
+}
