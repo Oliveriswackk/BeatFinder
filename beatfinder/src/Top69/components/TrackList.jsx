@@ -3,13 +3,16 @@ import TrackItem from './TrackItem';
 import FeaturedTrack from '../../Top69/components/FeaturedTrack';
 import '../styles/TrackList.css';
 
-const TrackList = () => {
+function TrackList() {
   const [tracks, setTracks] = useState([]);
   const [selectedTrack, setSelectedTrack] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const fetchTracks = async () => {
+    setLoading(true);
+
     try {
-      const response = await fetch('https://api.deezer.com/chart/0/tracks?limit=5');
+      const response = await fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks?limit=69');
       const data = await response.json();
       console.log('API Response:', data);
 
@@ -23,10 +26,12 @@ const TrackList = () => {
         setTracks(formattedTracks);
         setSelectedTrack(formattedTracks[0]);
       } else {
-        console.error('Formato inesperado de los datos:', data);
+        console.error('Unexpected data format:', data);
       }
     } catch (error) {
       console.error('Error fetching tracks:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -34,12 +39,17 @@ const TrackList = () => {
     fetchTracks();
   }, []);
 
-  console.log('Tracks:', tracks); // Verifica si los datos están en el estado
-
   return (
-    <div className="grid md:grid-cols-2 gap-6 p-6">
-      <div className="space-y-2">
-        {tracks.length > 0 ? (
+    <div className="tracklist-container">
+      <div className="featured-track-container">
+        {selectedTrack && (
+          <FeaturedTrack track={selectedTrack} />
+        )}
+      </div>
+      <div className="tracklist">
+        {loading ? (
+          <p className="text-white">Cargando...</p>
+        ) : (
           tracks.map((track, index) => (
             <TrackItem
               key={track.id}
@@ -48,12 +58,10 @@ const TrackList = () => {
               onClick={() => setSelectedTrack(track)}
             />
           ))
-        ) : (
-          <p className="text-white">Cargando...</p>
         )}
       </div>
     </div>
   );
-};
+}
 
-export default TrackList;;
+export default TrackList;
