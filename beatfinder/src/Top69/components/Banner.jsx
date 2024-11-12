@@ -19,7 +19,7 @@ const Banner = () => (
             <path fill="currentColor" d="M8 5v14l11-7z" />
           </svg>
         </button>
-        <div>
+        <div className='banner-title-container'>
           <h2 className="banner-subtitle">Mundial</h2>
           <h1 className="banner-title">TOP 69</h1>
         </div>
