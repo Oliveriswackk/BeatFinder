@@ -152,7 +152,6 @@ function Encuesta() {
       {showResult ? (
           <div className="result-section">
           <h2>Resultado: {getGenre()}</h2>
-          {/* <p>Puntaje total: {totalPoints}</p> */}
         </div>
       ) : (
           <>
@@ -192,3 +191,4 @@ function ProgressBar({ value, max }) {
     );
 }
 export default Encuesta;
+
