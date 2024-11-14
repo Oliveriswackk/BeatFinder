@@ -21,7 +21,7 @@ const Banner = () => (
         </button>
         <div className='banner-title-container'>
           <h2 className="banner-subtitle">Mundial</h2>
-          <h1 className="banner-title">TOP 69</h1>
+          <h1 className="banner-title">TOP 50</h1>
         </div>
       </div>
     </div>
