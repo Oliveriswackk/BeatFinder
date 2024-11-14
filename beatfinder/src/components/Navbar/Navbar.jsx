@@ -40,7 +40,7 @@ function Navbar() {
           </a>
         )}
         
-        <a href="/top69">top69</a>
+        <a href="/top69">Top 50</a>
       </nav>
     );
   }
@@ -58,7 +58,7 @@ function Navbar() {
               BeatFinder
             </a>
         )}
-        <a href="/top69">top69</a>
+        <a href="/top69">Top 50</a>
       </nav>
     );
   }
@@ -77,7 +77,7 @@ function Navbar() {
             </a>
         )}
         
-        <a href="/top69">top69</a>
+        <a href="/top69">Top 50</a>
       </nav>
     );
   }
