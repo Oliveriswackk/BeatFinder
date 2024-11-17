@@ -14,7 +14,6 @@ function TrackList() {
   const [selectedTrack, setSelectedTrack] = useState(null);
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState(null);
-  const [audio, setAudio] = useState(null);
 
   const getSpotifyToken = async () => {
     if (token) return;
@@ -77,27 +76,14 @@ function TrackList() {
     getSpotifyToken().then(fetchTracks);
   }, [token]);
 
-  const handleTrackSelection = (track) => {
-    setSelectedTrack(track);
-
-    if (audio) {
-      audio.pause();
-      setAudio(null);
-    }
-
-    if (track.previewUrl) {
-      const newAudio = new Audio(track.previewUrl);
-      newAudio.play();
-      setAudio(newAudio);
-    } else {
-      console.warn("No preview available for this track");
-    }
-  };
-
   return (
     <div className="tracklist-container">
       <div className="featured-track-container">
-        {selectedTrack && <FeaturedTrack track={selectedTrack} />}
+        {selectedTrack && (
+          <FeaturedTrack 
+            track={selectedTrack} 
+          />
+        )}
       </div>
       <div className="tracklist">
         {loading ? (
@@ -108,7 +94,7 @@ function TrackList() {
               key={track.id}
               position={index + 1}
               track={track}
-              onClick={() => handleTrackSelection(track)}
+              onClick={() => setSelectedTrack(track)}
             />
           ))
         )}
