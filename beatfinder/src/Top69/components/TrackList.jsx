@@ -14,6 +14,7 @@ function TrackList() {
   const [selectedTrack, setSelectedTrack] = useState(null);
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState(null);
+  const [audio, setAudio] = useState(null);
 
   const getSpotifyToken = async () => {
     if (token) return;
@@ -58,6 +59,7 @@ function TrackList() {
           title: item.track.name,
           artist: item.track.artists[0].name,
           albumArtUrl: item.track.album.images[0].url,
+          previewUrl: item.track.preview_url,
         }));
         setTracks(formattedTracks);
         setSelectedTrack(formattedTracks[0]);
@@ -71,7 +73,26 @@ function TrackList() {
     }
   };
 
-  useEffect(() => { getSpotifyToken().then(fetchTracks);}, [token]);
+  useEffect(() => {
+    getSpotifyToken().then(fetchTracks);
+  }, [token]);
+
+  const handleTrackSelection = (track) => {
+    setSelectedTrack(track);
+
+    if (audio) {
+      audio.pause();
+      setAudio(null);
+    }
+
+    if (track.previewUrl) {
+      const newAudio = new Audio(track.previewUrl);
+      newAudio.play();
+      setAudio(newAudio);
+    } else {
+      console.warn("No preview available for this track");
+    }
+  };
 
   return (
     <div className="tracklist-container">
@@ -87,7 +108,7 @@ function TrackList() {
               key={track.id}
               position={index + 1}
               track={track}
-              onClick={() => setSelectedTrack(track)}
+              onClick={() => handleTrackSelection(track)}
             />
           ))
         )}
