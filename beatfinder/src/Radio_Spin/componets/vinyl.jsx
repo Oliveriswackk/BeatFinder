@@ -1,19 +1,58 @@
 import React, { useEffect, useState } from 'react';
 import '../../Radio_Spin/styles/vinyl.css';
 
-function Vinyl({ vinylImage, artistName, songTitle, imageUrl }) {
+function Vinyl({ vinylImage }) {
   const [centerImage, setCenterImage] = useState('');
+  const [artistName, setArtistName] = useState('');
+  const [songTitle, setSongTitle] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+  const [accessToken, setAccessToken] = useState('');
 
-  // Llamada a la API para obtener una imagen aleatoria
+  // Credenciales de Spotify
+  const clientId = 'TU_CLIENT_ID';
+  const clientSecret = 'TU_CLIENT_SECRET';
+
+  // Función para obtener el token de acceso
+  const fetchAccessToken = async () => {
+    const response = await fetch('https://accounts.spotify.com/api/token', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        Authorization: 'Basic ' + btoa(`${clientId}:${clientSecret}`),
+      },
+      body: 'grant_type=client_credentials',
+    });
+    const data = await response.json();
+    setAccessToken(data.access_token);
+  };
+
+  // Función para obtener datos de una canción aleatoria
+  const fetchRandomTrack = async () => {
+    const response = await fetch('https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M/tracks', {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    const data = await response.json();
+    const randomTrack = data.items[Math.floor(Math.random() * data.items.length)].track;
+
+    setCenterImage(randomTrack.album.images[1]?.url);
+    setArtistName(randomTrack.artists[0]?.name);
+    setSongTitle(randomTrack.name);
+    setImageUrl(randomTrack.album.images[0]?.url);
+  };
+
+  // Obtener el token de acceso al montar el componente
   useEffect(() => {
-    fetch('https://picsum.photos/100') // URL de Lorem Picsum para una imagen de 100x100
-      .then(response => {
-        setCenterImage(response.url);
-      })
-      .catch(error => {
-        console.error('Error fetching the image:', error);
-      });
+    fetchAccessToken();
   }, []);
+
+  // Obtener una canción aleatoria una vez que se tenga el token de acceso
+  useEffect(() => {
+    if (accessToken) {
+      fetchRandomTrack();
+    }
+  }, [accessToken]);
 
   return (
     <div className="vinyl-container">
