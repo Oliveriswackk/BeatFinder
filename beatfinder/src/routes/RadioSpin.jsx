@@ -1,10 +1,10 @@
 import Navbar from '../components/Navbar/Navbar';
-
+import Background from '../Radio_Spin/componets/background.jsx';
 const RadioSpin = () => {
     return (
-      <div className="Top69">
+      <div clas sName="Top69">
         <Navbar/>
-        
+        <Background/>
       </div>
     );
   };
