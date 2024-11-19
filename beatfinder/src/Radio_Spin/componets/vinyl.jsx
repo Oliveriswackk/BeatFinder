@@ -9,8 +9,11 @@ function Vinyl({ vinylImage }) {
   const [accessToken, setAccessToken] = useState('');
 
   // Credenciales de Spotify
-  const clientId = 'TU_CLIENT_ID';
-  const clientSecret = 'TU_CLIENT_SECRET';
+  //const clientId = 'd52221bf672f4fa4849370f393f65ad5';
+  //const clientSecret = 'a65efe8d97884d7f830aab11ddc8f839';
+
+  const clientId = 'LMAO';
+  const clientSecret = 'LMFAO';
 
   // Función para obtener el token de acceso
   const fetchAccessToken = async () => {
@@ -62,9 +65,7 @@ function Vinyl({ vinylImage }) {
         {centerImage && <img src={centerImage} alt="Center" className="center-image" />}
       </div>
 
-      {/* Imagen del álbum */}
-      {imageUrl && <img src={imageUrl} alt="Album Cover" className="album-image" />}
-
+     
       {/* Sección para mostrar el nombre del artista y la canción */}
       <div className="vinyl-info">
         <p className="song-title">{songTitle}</p>
