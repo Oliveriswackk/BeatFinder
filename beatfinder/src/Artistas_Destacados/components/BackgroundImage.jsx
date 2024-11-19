@@ -3,7 +3,12 @@ import '../styles/BackgroundImage.css';
 
 const BackgroundImage = ({ artista }) => {
   return (
-    <div className="background-image" style={{ backgroundImage: `url(${require(`../../images/${artista.imagen}`)})` }}>
+    <div 
+      className="background-image" 
+      style={{ 
+        backgroundImage: `url(${artista.imagen || '/placeholder.png'})`
+      }}
+    >
       <div className="artist-info">
         <h1>{artista.nombre}</h1>
         <p>Canción famosa: {artista.cancion}</p>
