@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import BackgroundImage from '../Artistas_Destacados/components/BackgroundImage';
 import ArtistCard from '../Artistas_Destacados/components/ArtistCard';
-import Footer from '../Artistas_Destacados/components/Footer';
+import ArtisList from '../Artistas_Destacados/components/ArtistList';
 import '../Styles/ArtistasDestacados.css';
 
 const ArtistasDestacados = () => {
   const [artists, setArtists] = useState([]);
+  const [moreArtists, setMoreArtists] = useState([]);
   const [fondo, setFondo] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -48,6 +49,26 @@ const ArtistasDestacados = () => {
       );
       
       const artistsData = await Promise.all(
+        uniqueArtists.slice(3, 10).map(async (artist) => {
+          const artistResponse = await fetch(
+            `https://api.spotify.com/v1/artists/${artist.id}`,
+            {
+              headers: { Authorization: `Bearer ${access_token}` },
+            }
+          );
+          const artistData = await artistResponse.json();
+          
+          return {
+            nombre: artistData.name,
+            imagen: artistData.images[0]?.url || null,
+            cancion: tracksData.items.find(
+              item => item.track.artists[0].id === artist.id
+            )?.track.name || 'Unknown'
+          };
+        })
+      );
+
+      const top3Artists = await Promise.all(
         uniqueArtists.slice(0, 3).map(async (artist) => {
           const artistResponse = await fetch(
             `https://api.spotify.com/v1/artists/${artist.id}`,
@@ -67,8 +88,9 @@ const ArtistasDestacados = () => {
         })
       );
       
-      setArtists(artistsData);
-      setFondo(artistsData[0]);
+      setArtists(top3Artists);
+      setMoreArtists(artistsData);
+      setFondo(top3Artists[0]);
       setIsLoading(false);
     } catch (error) {
       console.error('Error fetching artists:', error);
@@ -101,7 +123,7 @@ const ArtistasDestacados = () => {
           />
         ))}
       </div>
-      <Footer />
+      <ArtisList artists={moreArtists} onArtistClick={handleArtistClick} />
     </div>
   );
 };
