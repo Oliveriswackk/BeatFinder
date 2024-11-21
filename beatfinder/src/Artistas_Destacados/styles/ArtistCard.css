@@ -1,12 +1,18 @@
 .artist-card {
-    text-align: center;
-    cursor: pointer;
-    width: 300px;
+  text-align: center;
+  cursor: pointer;
+  width: 300px;
+  transition: transform 0.3s, background-color 0.3s;
 
-  }
-  
-  .artist-card img {
-    width: 100%;
-    border-radius: 10px;
-  }
-  
+}
+
+.artist-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.artist-card:hover {
+  transform: scale(1.05);
+  color: #12ec28;
+  border-color: #12ec28;
+}
