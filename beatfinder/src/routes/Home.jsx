@@ -45,7 +45,7 @@ const Home = () => {
           </div>
           <div className="category" onClick={handleTop69Click}>
             <img className='imagenesCat' src={imagen2} alt="Top Global" />
-            <h3>Top 69 Global</h3>
+            <h3>Top 50 Global</h3>
           </div>
           <div className="category" onClick={handleRadioSpinClick}>
             <img className='imagenesCat' src={imagen3} alt="Random" />
