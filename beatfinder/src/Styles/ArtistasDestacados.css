@@ -1,13 +1,11 @@
 .artistas-destacados {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  }
-  
-  .artist-card-container {
-    display: flex;
-    gap: 30px;
-    padding: 50px;
-  }  
+.artist-card-container {
+  display: flex;
+  gap: 30px;
+  padding: 50px;
+}  
