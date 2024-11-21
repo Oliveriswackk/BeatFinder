@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar/Navbar';
 import BackgroundImage from '../Artistas_Destacados/components/BackgroundImage';
 import ArtistCard from '../Artistas_Destacados/components/ArtistCard';
 import ArtisList from '../Artistas_Destacados/components/ArtistList';
+import DestacadosBanner from '../Artistas_Destacados/components/DestacadosBanner';
 import '../Styles/ArtistasDestacados.css';
 
 const ArtistasDestacados = () => {
@@ -113,6 +114,7 @@ const ArtistasDestacados = () => {
   return (
     <div className="artistas-destacados">
       <Navbar />
+      <DestacadosBanner/>
       {fondo && <BackgroundImage artista={fondo} />}
       <div className="artist-card-container">
         {artists.map((artista, index) => (
