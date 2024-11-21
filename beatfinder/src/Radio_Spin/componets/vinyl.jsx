@@ -12,9 +12,6 @@ function Vinyl({ vinylImage }) {
   const clientId = 'd52221bf672f4fa4849370f393f65ad5';
   const clientSecret = 'a65efe8d97884d7f830aab11ddc8f839';
 
-  // const clientId = 'LMAO';
-  // const clientSecret = 'LMFAO';
-
   // Función para obtener el token de acceso
   const fetchAccessToken = async () => {
     const response = await fetch('https://accounts.spotify.com/api/token', {
@@ -55,6 +52,7 @@ function Vinyl({ vinylImage }) {
     if (accessToken) {
       fetchRandomTrack();
     }
+    // eslint-disable-next-line 
   }, [accessToken]);
 
   return (
@@ -62,11 +60,9 @@ function Vinyl({ vinylImage }) {
       <img src={vinylImage} alt="Vinyl" className="vinyl-image" />
       
       <div className="center-image-container">
-        {centerImage && <img src={centerImage} alt="Center" className="center-image" />}
+        {/* {centerImage && <img src={centerImage} alt="Center" className="center-image" />} */}
+        {centerImage && <img src={imageUrl} alt="Center" className="center-image" />}
       </div>
-
-     
-      {/* Sección para mostrar el nombre del artista y la canción */}
       <div className="vinyl-info">
         <p className="song-title">{songTitle}</p>
         <p className="artist-name">{artistName}</p>
