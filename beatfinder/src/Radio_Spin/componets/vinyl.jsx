@@ -9,11 +9,11 @@ function Vinyl({ vinylImage }) {
   const [accessToken, setAccessToken] = useState('');
 
   // Credenciales de Spotify
-  //const clientId = 'd52221bf672f4fa4849370f393f65ad5';
-  //const clientSecret = 'a65efe8d97884d7f830aab11ddc8f839';
+  const clientId = 'd52221bf672f4fa4849370f393f65ad5';
+  const clientSecret = 'a65efe8d97884d7f830aab11ddc8f839';
 
-  const clientId = 'LMAO';
-  const clientSecret = 'LMFAO';
+  // const clientId = 'LMAO';
+  // const clientSecret = 'LMFAO';
 
   // Función para obtener el token de acceso
   const fetchAccessToken = async () => {
