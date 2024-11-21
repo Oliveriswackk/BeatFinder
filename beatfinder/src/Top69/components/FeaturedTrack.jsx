@@ -14,7 +14,7 @@ function FeaturedTrack({ track }) {
       }
       setIsPlaying(!isPlaying);
     } else {
-      alert("No preview available for this track");
+      alert("No hay vista previa disponible para esta pista");
     }
   };
 
