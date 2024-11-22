@@ -45,3 +45,5 @@ Radio Spin
     * Suavizar las curvaturas de las figuras
 - Agregar texto de instrucción al banner
 - Agrandar el vinyl y sus respectivos elementos
+- Hacer que se reproduzca la cancion
+- Hacer que si le picas al vinyl se cambie la cancion
