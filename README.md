@@ -45,3 +45,4 @@ Radio Spin
     * Suavizar las curvaturas de las figuras
 - Agregar Boton de reproduccion de la cancion
 - Agregar Boton que te muestre el historial de las canciones que se han generado
+- Agregar Boton que guarde la cancion en un carrito 
