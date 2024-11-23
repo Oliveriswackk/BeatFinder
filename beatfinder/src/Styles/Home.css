@@ -1,122 +1,248 @@
+/* General Styles */
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #111;
-    color: #fff;
-  }
-  
-  /* Header Section */
-  .header {
-    position: relative;
-    height: 100vh;
-    background: url('../images/vinyl-record-and-headphone-over-wooden-table-audi-2023-11-27-05-32-32-utc.jpg') no-repeat center center/cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .header-title {
-    font-size: 4rem;
-    margin: 0;
-    font-weight: 700;
-  }
-  
-  .header-subtitle {
-    font-size: 1.5rem;
-    margin: 10px 0;
-  }
-  
-  .button-encuesta {
-    background-color: #7e572b;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .button-encuesta:hover {
-    background-color: #9f7137;
-  }
-  
-  /* Categories Section */
-  .categories-section {
-    height: 60vh;
-    padding: 50px 0;
-    background-color: #222;
-    text-align: center;
-    background: url('../images/segments-of-vinyl-record-spinning-macro-view-pla-2024-08-14-05-01-33-utc\ \(1\).jpg') no-repeat center center/cover;
+  width: 100vw; /* Cubre el ancho completo de la ventana */
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #111;
+  color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
 
+/* Header Section */
+.header {
+  min-height: 100vh; /* Cubre la altura completa de la ventana */
+  width: 100vw; /* Cubre el ancho completo de la ventana */
+  background: url('../images/vinyl-record-and-headphone-over-wooden-table-audi-2023-11-27-05-32-32-utc.jpg') no-repeat center center / cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+.header-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  max-width: 90%;
+  word-wrap: break-word;
+}
+
+.header-subtitle {
+  font-size: 1.5rem;
+  margin: 10px 0 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+/* Botón Encuesta */
+.button-encuesta {
+  background-color: #7e572b6c;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+  margin-top: 20px;
+}
+
+.button-encuesta:hover {
+  background-color: #9f7137;
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.6);
+}
+
+.button-encuesta:active {
+  transform: translateY(0px);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Categories Section */
+.categories-section {
+  min-height: 100vh;
+  background: url('../images/segments-of-vinyl-record-spinning-macro-view-pla-2024-08-14-05-01-33-utc\ \(1\).jpg') no-repeat center center/cover;
+  background-attachment: fixed;
+  text-align: center;
+  color: #fff;
+  padding: 50px 20px;
+}
+
+.categories-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+.categories-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 100px;
+}
+
+.category {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  font-size: 18px;
+  border-radius: 15px;
+  text-align: center;
+  width: 20%;
+  max-width: 300px;
+  height: 300px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.category:hover {
+  transform: scale(1.1) rotate(-3deg);
+  box-shadow: 0px 8px 12px rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.imagenesCat {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.imagenesCat:hover {
+  transform: scale(1.2);
+  filter: brightness(1.2);
+}
+
+/* Footer Section */
+.footer {
+  background-color: #0f0f0f;
+  padding: 40px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: #ccc;
+  gap: 20px;
+  width: 100%;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-title {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.footer-link {
+  color: #aaa;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.Logo img {
+  width: 40px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+/* Animación FadeIn */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .categories-title {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .categories-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-  
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
   .category {
     width: 30%;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s;
-    height: 180px;
-    width: 150px;
   }
-  
-  .category:hover {
-    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 2.5rem;
   }
-  
-  .imagenesCat {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 15px;
-  }
-  
-  /* Footer Section */
-  .footer {
-    height: 200px;
-    background-color: #0f0f0f;
-    padding: 20px 50px;
-    display: flex;
-    justify-content: space-between;
-    color: #ccc;
-  }
-  
-  .footer-column {
-    flex: 1;
-  }
-  
-  .footer-title {
+
+  .header-subtitle {
     font-size: 1.2rem;
-    margin-bottom: 10px;
-    margin-top: 70px;
   }
-  
-  .footer-link {
-    display: block;
-    margin: 5px 0;
-    color: #aaa;
-    text-decoration: none;
+
+  .categories-title {
+    font-size: 2rem;
   }
-  
-  .footer-link:hover {
-    text-decoration: underline;
+
+  .category {
+    width: 200px;
+    height: 250px;
   }
-  
-  .Logo img {
-    width: 30px;
+
+  .button-encuesta {
+    font-size: 1rem;
+    padding: 10px 20px;
   }
-  
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-title {
+    font-size: 2rem;
+  }
+
+  .header-subtitle {
+    font-size: 1rem;
+  }
+
+  .categories-title {
+    font-size: 1.8rem;
+  }
+
+  .category {
+    width: 180px;
+    height: 230px;
+  }
+
+  .button-encuesta {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}

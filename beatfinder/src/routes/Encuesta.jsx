@@ -120,16 +120,20 @@ function Encuesta() {
   const [totalPoints, setTotalPoints] = useState(0);
   const [showResult, setShowResult] = useState(false);
 
-  // Manejador de la selección de respuesta
   const handleAnswerClick = (points) => {
-    setTotalPoints(totalPoints + points); 
-
+    setTotalPoints(totalPoints + points);
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
-      setShowResult(true); 
+      setShowResult(true);
     }
+  };
+
+  const resetQuiz = () => {
+    setCurrentQuestion(0);
+    setTotalPoints(0);
+    setShowResult(false);
   };
 
   const getGenre = () => {
@@ -147,48 +151,51 @@ function Encuesta() {
 
   return (
     <div className='juan'>
-     <Navbar/>
-    <div className="quiz">
-      {showResult ? (
+      <Navbar />
+      <div className="quiz">
+        {showResult ? (
           <div className="result-section">
-          <h2>Resultado: {getGenre()}</h2>
-        </div>
-      ) : (
+            <h2>Resultado: {getGenre()}</h2>
+            <button className="claseButton" onClick={resetQuiz}>
+              Volver a hacer la encuesta
+            </button>
+          </div>
+        ) : (
           <>
-          
-          <div className="question-section">
-            <div className="question-count">
-              <span>Pregunta {currentQuestion + 1}/{questions.length}</span>
-              <ProgressBar value={currentQuestion} max={questions.length-1}/>
+            <div className="question-section">
+              <div className="question-count">
+                <span>Pregunta {currentQuestion + 1}/{questions.length}</span>
+                <ProgressBar value={currentQuestion} max={questions.length - 1} />
+              </div>
+              <div className="question-text">
+                {questions[currentQuestion].questionText}
+              </div>
             </div>
-            <div className="question-text">
-              {questions[currentQuestion].questionText}
-            </div>
-          </div>
-          <div className="answer-section">
-            {questions[currentQuestion].answerOptions.map((answerOption, index) => (
-                <button className='claseButton'
-                key={index}
-                onClick={() => handleAnswerClick(answerOption.points)}
+            <div className="answer-section">
+              {questions[currentQuestion].answerOptions.map((answerOption, index) => (
+                <button
+                  className="claseButton"
+                  key={index}
+                  onClick={() => handleAnswerClick(answerOption.points)}
                 >
-                {answerOption.answerText}
-              </button>
-            ))}
-          </div>
-        </>
-      )}
-    </div>
+                  {answerOption.answerText}
+                </button>
+              ))}
+            </div>
+          </>
+        )}
       </div>
+    </div>
   );
 }
 
 function ProgressBar({ value, max }) {
-    return (
-        <div className="progress-bar">
-          <div className="progress-bar-completed" style={{ width: `${(value / max) * 100}%` }}>
-          </div>
-        </div>
-    );
+  return (
+    <div className="progress-bar">
+      <div className="progress-bar-completed" style={{ width: `${(value / max) * 100}%` }}>
+      </div>
+    </div>
+  );
 }
-export default Encuesta;
 
+export default Encuesta;

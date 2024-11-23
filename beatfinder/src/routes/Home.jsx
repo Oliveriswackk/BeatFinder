@@ -8,24 +8,12 @@ import imagen2 from '../images/imagen2.png';
 import imagen3 from '../images/imagen3.png'; 
 
 const Home = () => {
-  
   const navigate = useNavigate();
 
-  const handleEncuestaClick = () => {
-    navigate('/encuesta'); // Navegar entre las páginas de la encuesta
-  };
-
-  const handleArtistasDestacadosClick = () => {
-    navigate('/artistas-destacados'); 
-  };
-
-  const handleTop69Click = () => {
-    navigate('/top69'); 
-  };
-
-  const handleRadioSpinClick = () => {
-    navigate('/radio-spin'); 
-  };
+  const handleEncuestaClick = () => navigate('/encuesta'); 
+  const handleArtistasDestacadosClick = () => navigate('/artistas-destacados');
+  const handleTop69Click = () => navigate('/top69');
+  const handleRadioSpinClick = () => navigate('/radio-spin');
 
   return (
     <div className="container">
@@ -38,7 +26,6 @@ const Home = () => {
       <section className="categories-section">
         <h2 className="categories-title">Categorías</h2>
         <div className="categories-container">
-          
           <div className="category" onClick={handleArtistasDestacadosClick}>
             <img className='imagenesCat' src={imagen1} alt="ArtistasDestacados" />
             <h3>Artistas Destacados</h3>
@@ -65,7 +52,6 @@ const Home = () => {
           <a className="footer-link" href="https://www.chess.com/es">Back-End | Jorge Chavira</a>
           <a className="footer-link" href="https://www.instagram.com/olympuscheerco/">DataBase | Maria Jose Duran</a>
           <a className="footer-link" href="https://www.starmedica.com/s/chihuahua">Proyect Manager | Emmanuel Rodriguez</a>
-
         </div>
         <div className="footer-column">
           <h3 className="footer-title">Términos y condiciones</h3>
@@ -77,7 +63,7 @@ const Home = () => {
           <h3 className="footer-title">Recursos</h3>
           <a className="footer-link" href="#">Blog</a>
           <a className="footer-link" href="#">Best practices</a>
-          <a className="footer-link" href="#">Colors</a>
+          <a className="footer-link" href="#">Learn more</a>
         </div>
       </footer>
     </div>
