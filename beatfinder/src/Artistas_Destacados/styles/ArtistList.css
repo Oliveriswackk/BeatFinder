@@ -1,64 +1,129 @@
+:root {
+    --primary-color: #12ec28;
+    --dark-bg: #1c1c1e;
+    --light-bg: #2c2c2e;
+    --highlight-bg: rgba(0, 0, 0, 0.3);
+    --text-color: #ffffff;
+    --subtle-text: #b3b3b3;
+    --border-radius: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .artists-list-container {
     padding: 2rem;
-    background-color: #1c1c1e;
-    border-radius: 0.5rem;
+    background-color: var(--dark-bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
 }
-  
+
 .artists-list-container h2 {
     font-size: 1.5rem;
-    color: #ffffff;
+    color: var(--text-color);
     margin-bottom: 1rem;
-    border-bottom: 2px solid #12ec28;
+    border-bottom: 2px solid var(--primary-color);
     padding-bottom: 0.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
-  
+
 .artists-list {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-top: 2rem;
 }
-  
+
 .artist-list-item {
-    background-color: #2c2c2e;
-    border-radius: 0.5rem;
+    background-color: var(--light-bg);
+    border-radius: var(--border-radius);
     padding: 1rem;
     text-align: center;
-    color: #ffffff;
-    width: 150px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, background-color 0.3s;
+    color: var(--text-color);
+    width: 100%;
+    max-width: 200px;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-  
+
 .artist-list-item:hover {
-    transform: scale(1.05);
-    background-color: #12ec28;
+    transform: translateY(-5px);
+    background-color: var(--primary-color);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
-  
+
 .artist-art-container {
     position: relative;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
 }
-  
+
 .artist-art {
     width: 100%;
-    border-radius: 0.25rem;
+    height: 180px;
     object-fit: cover;
-    height: 120px;
+    border-radius: var(--border-radius);
+    transition: transform 0.3s ease;
 }
-  
+
+.artist-art-container:hover .artist-art {
+    transform: scale(1.05);
+}
+
 .artist-info {
-    margin-top: 0.5rem;
+    margin-top: 17rem;
+    background-color: var(--highlight-bg);
+    padding: 1rem;
+    border-radius: var(--border-radius);
 }
-  
+
+.artist-info-top {
+    margin-top: 1rem;
+}
+
 .artist-name {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
-    color: #ffffff;
+    color: var(--text-color);
+    text-transform: capitalize;
 }
-  
+
 .artist-song {
     font-size: 0.875rem;
-    color: #b3b3b3;
+    color: var(--subtle-text);
+    margin-top: 0.5rem;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .artists-list {
+        justify-content: center;
+    }
+
+    .artist-list-item {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .artist-art {
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .artist-list-item {
+        width: 100%;
+    }
+
+    .artist-art {
+        height: 120px;
+    }
 }

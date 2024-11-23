@@ -18,7 +18,7 @@ const ArtisList = ({ artists, onArtistClick }) => {
                   className="artist-art"
                 />
               </div>
-              <div className="artist-info">
+              <div className="artist-info-top">
                 <h3 className="artist-name">{artist.nombre}</h3>
               </div>
             </div>
