@@ -47,23 +47,22 @@ const Home = () => {
         </div>
         <div className="footer-column">
           <h3 className="footer-title">Creadores</h3>
-          <a className="footer-link" href="https://www.instagram.com/soulless_.cat/">UI design | Oliver Coronado</a>
-          <a className="footer-link" href="https://www.instagram.com/soulless_.cat/">UX design | Oliver Coronado</a>
-          <a className="footer-link" href="https://www.chess.com/es">Back-End | Jorge Chavira</a>
+          <a className="footer-link" href="https://www.instagram.com/soulless_.cat/">UI and UX design | Oliver Coronado</a>
+          <a className="footer-link" href="https://www.chess.com/es/member/deghim">Back-End | Jorge Chavira</a>
           <a className="footer-link" href="https://www.instagram.com/olympuscheerco/">DataBase | Maria Jose Duran</a>
           <a className="footer-link" href="https://www.starmedica.com/s/chihuahua">Proyect Manager | Emmanuel Rodriguez</a>
         </div>
         <div className="footer-column">
           <h3 className="footer-title">Términos y condiciones</h3>
-          <a className="footer-link" href="#">Políticas</a>
-          <a className="footer-link" href="#">Prototipos</a>
-          <a className="footer-link" href="#">Development features</a>
+          <a className="footer-link" href="https://www.privacypolicies.com">Políticas</a>
+          <a className="footer-link" href="https://www.figma.com/design/ERfAH7T2nmes8dfTZGTLQd/Untitled?node-id=0-1&t=k3W4YeA4NDUKBNLU-1">Prototipos</a>
+          <a className="footer-link" href="https://developer.mozilla.org">Development features</a>
         </div>
         <div className="footer-column">
           <h3 className="footer-title">Recursos</h3>
-          <a className="footer-link" href="#">Blog</a>
-          <a className="footer-link" href="#">Best practices</a>
-          <a className="footer-link" href="#">Learn more</a>
+          <a className="footer-link" href="https://github.com/Oliveriswackk/BeatFinder.git">Blog</a>
+          <a className="footer-link" href="https://github.com/Oliveriswackk/BeatFinder.git">Best practices</a>
+          <a className="footer-link" href="https://github.com/Oliveriswackk/BeatFinder.git">Learn more</a>
         </div>
       </footer>
     </div>
