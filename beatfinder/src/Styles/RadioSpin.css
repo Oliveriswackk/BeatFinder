@@ -1,0 +1,57 @@
+.radio-spin-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+  }
+  
+  .top69 {
+    flex: 3;
+    padding: 20px;
+  }
+  
+  .audio-player {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .radio-spin-sidebar {
+    flex: 1;
+    padding: 20px;
+    margin-top: 200px;
+    margin-right: 400px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start;
+    align-items: start;
+    text-align: start;
+  }
+  
+  .radio-spin-sidebar h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 40px;
+    color: #000000;
+    margin-bottom: 20px;
+  }
+  
+  .radio-spin-sidebar p {
+    font-family: 'Arial', sans-serif;
+    font-size: 25px;
+    color: #000000;
+  }
+  
+  .random-song-btn {
+    margin-top: 20px; 
+    padding: 10px 20px;
+    background-color: #eeeeee4e;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  /* Efecto al pasar el mouse sobre el botón */
+  .random-song-btn:hover {
+    background-color: #cfcfcf17;
+  }
