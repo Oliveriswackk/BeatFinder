@@ -2,6 +2,7 @@ import Navbar from '../components/Navbar/Navbar';
 import Background from '../Radio_Spin/componets/background.jsx';
 import Vinyl from '../Radio_Spin/componets/vinyl.jsx';
 import vinylImage from '../images/vinylImage.png';
+import '../Styles/RadioSpin.css'
 import { useEffect, useState } from 'react';
 
 const RadioSpin = () => {
@@ -31,20 +32,24 @@ const RadioSpin = () => {
     <div className="Top69">
       <Navbar />
       <Background />
-      <Vinyl 
-        vinylImage={vinylImage} 
-        artistName={artistName} 
-        songTitle={songTitle}
-        imageUrl={imageUrl} // Pasa la imagen del álbum
-      />
-
-      {/* Reproductor de música */}
-      {audioUrl && (
-        <audio controls>
-          <source src={audioUrl} type="audio/mpeg" />
-          Tu navegador no soporta el elemento de audio.
-        </audio>
-      )}
+      <div className="radioSpin-container">
+        <div className='titulos-radioSpin'>
+          <h1>Radio Spin</h1>
+          <h2>Da Click en el Vinil y descubre nuevas canciones para ti</h2>
+        </div>
+        <Vinyl 
+          vinylImage={vinylImage} 
+          artistName={artistName} 
+          songTitle={songTitle}
+          imageUrl={imageUrl}
+        />
+        {audioUrl && (
+          <audio controls>
+            <source src={audioUrl} type="audio/mpeg" />
+            Tu navegador no soporta el elemento de audio.
+          </audio>
+        )}
+      </div>
     </div>
   );
 };
