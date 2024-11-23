@@ -14,22 +14,46 @@ function Vinyl({ vinylImage }) {
 
   // Function to get access token
   const fetchAccessToken = async () => {
-    const response = await fetch('https://accounts.spotify.com/api/token', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Authorization: 'Basic ' + btoa(`${clientId}:${clientSecret}`),
-      },
-      body: 'grant_type=client_credentials',
-    });
-    const data = await response.json();
-    setAccessToken(data.access_token);
+    try {
+      const response = await fetch('https://accounts.spotify.com/api/token', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Authorization: 'Basic ' + btoa(`${clientId}:${clientSecret}`),
+        },
+        body: 'grant_type=client_credentials',
+      });
+      const data = await response.json();
+      setAccessToken(data.access_token);
+    } catch (error) {
+      console.error('Error fetching access token:', error);
+    }
   };
 
-  // Function to fetch random track
+  // Function to fetch a random playlist
+  const fetchRandomPlaylist = async () => {
+    try {
+      const response = await fetch('https://api.spotify.com/v1/browse/featured-playlists?limit=20', {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      const data = await response.json();
+      const randomPlaylist = data.playlists.items[Math.floor(Math.random() * data.playlists.items.length)];
+      return randomPlaylist.id;
+    } catch (error) {
+      console.error('Error fetching random playlist:', error);
+      return null;
+    }
+  };
+
+  // Function to fetch a random track from a playlist
   const fetchRandomTrack = async () => {
     try {
-      const response = await fetch('https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M/tracks', {
+      const playlistId = await fetchRandomPlaylist();
+      if (!playlistId) return;
+
+      const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -62,7 +86,7 @@ function Vinyl({ vinylImage }) {
   return (
     <div 
       className="vinyl-container" 
-      onClick={fetchRandomTrack} 
+      onClick={fetchRandomTrack} // Trigger fetching a new random song
     >
       <img src={vinylImage} alt="Vinyl" className="vinyl-image" />
       
