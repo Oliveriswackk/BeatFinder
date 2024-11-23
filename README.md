@@ -17,7 +17,7 @@ Home
 - Revisar los elementos del footer
     - Contacto de los creadores
     - Revisar los elementos formales para asegurar información
-        -  politicas
+        - politicas
         - prototipos
         - development features
     - Revisar los elementos en recursos, agregando información correspondiente
@@ -43,5 +43,5 @@ Encuesta
 Radio Spin 
 * Considerar modificar el estilizado de la pagina
     * Suavizar las curvaturas de las figuras
-- Agregar texto de instrucción al banner
-- Agrandar el vinyl y sus respectivos elementos
+- Agregar Boton de reproduccion de la cancion
+- Agregar Boton que te muestre el historial de las canciones que se han generado
