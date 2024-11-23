@@ -1,10 +1,14 @@
 import Navbar from '../components/Navbar/Navbar';
 import '../Styles/Encuesta.css';
-
 import React, { useState } from "react";
+import openaiApi from '../../src/api/openaiApi.js'; 
 
 function Encuesta() {
- 
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [totalPoints, setTotalPoints] = useState(0);
+  const [showResult, setShowResult] = useState(false);
+  const [recommendation, setRecommendation] = useState("");
+
   const questions = [
     {
       questionText: "¿Qué actividad prefieres hacer mientras escuchas música?",
@@ -116,50 +120,73 @@ function Encuesta() {
     },
   ];
 
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [totalPoints, setTotalPoints] = useState(0);
-  const [showResult, setShowResult] = useState(false);
+ // Manejador de la selección de respuesta
+ const handleAnswerClick = (points) => {
+  setTotalPoints(totalPoints + points);
 
-  // Manejador de la selección de respuesta
-  const handleAnswerClick = (points) => {
-    setTotalPoints(totalPoints + points); 
+  const nextQuestion = currentQuestion + 1;
+  if (nextQuestion < questions.length) {
+    setCurrentQuestion(nextQuestion);
+  } else {
+    setShowResult(true);
+    getChatGPTRecommendation(totalPoints + points);  // Llama la API con el puntaje final
+  }
+};
 
-    const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < questions.length) {
-      setCurrentQuestion(nextQuestion);
-    } else {
-      setShowResult(true); 
-    }
-  };
+// Llamada a la API de OpenAI para obtener la recomendación
+const getChatGPTRecommendation = async (totalPoints) => {
+  const prompt = `
+    Dado el puntaje total de ${totalPoints} y las preferencias descritas, ¿qué género musical recomendarías y por qué?
+    Describe brevemente el género y cómo encaja con estas preferencias.
+  `;
 
-  const getGenre = () => {
-    if (totalPoints <= 20) return "Música Clásica o New Age";
-    if (totalPoints <= 30) return "Jazz o Blues";
-    if (totalPoints <= 40) return "Folk o Música Acústica";
-    if (totalPoints <= 50) return "Indie o Alternativo";
-    if (totalPoints <= 60) return "Pop";
-    if (totalPoints <= 70) return "Salsa o Música Latina";
-    if (totalPoints <= 80) return "Rock o Metal";
-    if (totalPoints <= 90) return "Electrónica o Techno";
-    if (totalPoints <= 100) return "Reguetón o Hip-Hop";
-    return "Experimental o Avant-Garde";
-  };
+  try {
+    // Realizar la solicitud a la API de OpenAI
+    const response = await openaiApi.post("/completions", {
+      model: "gpt-3.5-turbo", // Reemplaza con el modelo adecuado
+      messages: [{ role: "system", content: "You are a helpful assistant." },
+                 { role: "user", content: prompt }],
+      max_tokens: 100,
+    });
 
-  return (
-    <div className='juan'>
-     <Navbar/>
+    // Verifica la respuesta
+    console.log(response.data);
+
+    // Establece la recomendación recibida en el estado
+    setRecommendation(response.data.choices[0].message.content.trim());
+  } catch (error) {
+    console.error("Error fetching ChatGPT recommendation:", error.response ? error.response.data : error.message);
+    setRecommendation("Hubo un error al obtener la recomendación.");
+  }
+};
+
+// Reinicia el estado para volver a empezar la encuesta
+const handleRestart = () => {
+  setCurrentQuestion(0);
+  setTotalPoints(0);
+  setShowResult(false);
+  setRecommendation("");
+};
+
+return (
+  <div className='juan'>
+    <Navbar />
     <div className="quiz">
       {showResult ? (
-          <div className="result-section">
-          <h2>Resultado: {getGenre()}</h2>
+        <div className="result-section">
+          <h2>Recomendación: {recommendation}</h2>
+          <button className="buttonRestart" onClick={handleRestart}>
+            <div className="text">
+              Reintentar
+            </div>
+          </button>
         </div>
       ) : (
-          <>
-          
+        <>
           <div className="question-section">
             <div className="question-count">
               <span>Pregunta {currentQuestion + 1}/{questions.length}</span>
-              <ProgressBar value={currentQuestion} max={questions.length-1}/>
+              <ProgressBar value={currentQuestion} max={questions.length - 1} />
             </div>
             <div className="question-text">
               {questions[currentQuestion].questionText}
@@ -167,10 +194,11 @@ function Encuesta() {
           </div>
           <div className="answer-section">
             {questions[currentQuestion].answerOptions.map((answerOption, index) => (
-                <button className='claseButton'
+              <button
+                className='claseButton'
                 key={index}
                 onClick={() => handleAnswerClick(answerOption.points)}
-                >
+              >
                 {answerOption.answerText}
               </button>
             ))}
@@ -178,17 +206,16 @@ function Encuesta() {
         </>
       )}
     </div>
-      </div>
-  );
+  </div>
+);
 }
 
 function ProgressBar({ value, max }) {
-    return (
-        <div className="progress-bar">
-          <div className="progress-bar-completed" style={{ width: `${(value / max) * 100}%` }}>
-          </div>
-        </div>
-    );
+return (
+  <div className="progress-bar">
+    <div className="progress-bar-completed" style={{ width: `${(value / max) * 100}%` }}></div>
+  </div>
+);
 }
-export default Encuesta;
 
+export default Encuesta;
