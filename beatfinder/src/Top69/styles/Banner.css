@@ -1,32 +1,42 @@
+/* Reseteo básico de márgenes y tamaño de caja */
 * {
     box-sizing: border-box;
-  }
+    margin: 0;
+}
 
+body {
+    overflow-x: hidden;
+}
+
+/* Estilos para el banner */
 .banner {
     position: relative;
+    width: 100vw;
     height: 40em;
     overflow: hidden;
-    width: 100vw;
 }
 
-.banner-background {
+.banner-background,
+.banner-image {
     position: absolute;
     inset: 0;
-}
-
-.banner-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.banner-image {
     opacity: 0.8;
 }
+
 
 .banner-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(13, 20, 80, 0.5), rgba(139, 0, 0, 0.5));
+    background: linear-gradient(to bottom, rgba(16, 16, 16, 0) 0%, rgba(16, 16, 16, 0.109) 100%);
 }
 
+/* Contenido dentro del banner */
 .banner-content {
     position: relative;
     z-index: 10;
@@ -37,49 +47,47 @@
     justify-content: center;
 }
 
-.banner-text {
+.banner-left {
+    display: flex;
+    justify-content: flex-start; 
+    gap: 2rem;  
+    width: 100%;
+}
+
+
+.banner-center {
+    display: flex;
+    justify-content: center; 
+    width: 100%;
+}
+
+
+.banner-text,
+.banner-subtitle,
+.banner-title {
     color: white;
-    font-size: 1.125rem;
+}
+
+.banner-text {
+    font-size: 2rem;
     margin-bottom: 1rem;
 }
 
-.banner-controls {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.play-button {
-    padding: 0.75rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 9999px;
-    transition: all 0.3s ease;
-}
-
-.play-button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
-}
-
-.play-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    color: white;
-}
-
 .banner-subtitle {
-    color: white;
-    font-size: 0.875rem;
+    font-size: 30px;
 }
 
 .banner-title {
     margin-top: 30px;
-    color: white;
-    font-size: 1.875rem;
+    font-size: 40px;
     font-weight: bold;
 }
 
-body {
-    margin: 0;
-    overflow-x: hidden;
-  }
+
+.banner-controls {
+    display: flex;
+    align-items: start;
+    gap: 2rem;
+    
+}
+
