@@ -1,8 +1,16 @@
-.radio-spin-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start; /* Alinea el contenido a la izquierda */
-  }
+/* .radio-spin-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+} */
+
+.radioSpin-container {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
   
   .top69 {
     flex: 3;
@@ -16,28 +24,30 @@
   }
   
   .radio-spin-sidebar {
-    flex: 1;
-    padding: 20px;
-    margin-top: 200px;
-    margin-right: 400px;
     display: flex;
     flex-direction: column; 
     justify-content: flex-start;
     align-items: start;
-    text-align: start;
+    margin-top: 15rem;
+    margin-left:47rem;
+    margin-right: 20rem;
+    text-align: left;
+    
+  }
+  
+  .radio-spin-sidebar h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 5rem;
+    /* color: #000000; */
+    margin-bottom: 20px;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.9);
   }
   
   .radio-spin-sidebar h2 {
     font-family: 'Arial', sans-serif;
-    font-size: 40px;
-    color: #000000;
-    margin-bottom: 20px;
-  }
-  
-  .radio-spin-sidebar p {
-    font-family: 'Arial', sans-serif;
-    font-size: 25px;
-    color: #000000;
+    font-size: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+    /* color: #000000; */
   }
   
   .random-song-btn {
@@ -49,9 +59,4 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-  }
-  
-  /* Efecto al pasar el mouse sobre el botón */
-  .random-song-btn:hover {
-    background-color: #cfcfcf17;
   }

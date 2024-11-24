@@ -54,8 +54,8 @@ const RadioSpin = () => {
 
       {/* Apartado a la derecha */}
       <div className="radio-spin-sidebar">
-        <h2>Radio Spin</h2>
-        <p>Descubre canciones nuevas y reinventa tu gusto</p>
+        <h1>Radio Spin</h1>
+        <h2>Descubre canciones nuevas y reinventa tu gusto</h2>
       </div>
     </div>
   );
