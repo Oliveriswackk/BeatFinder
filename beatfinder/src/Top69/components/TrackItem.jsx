@@ -38,7 +38,8 @@ const TrackItem = ({ position, track, onClick }) => {
         e.stopPropagation(); // Evita seleccionar el track al agregar al carrito
         addToCart(); 
       }}>
-        Agregar a Playlist
+        {/* Agregar a Playlist */}
+        +
       </button>
     </div>
   );
