@@ -47,12 +47,11 @@ function Vinyl({ vinylImage }) {
     }
   };
 
-  // Function to fetch a random track from a playlist
   const fetchRandomTrack = async () => {
     try {
       const playlistId = await fetchRandomPlaylist();
       if (!playlistId) return;
-
+  
       const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -60,18 +59,17 @@ function Vinyl({ vinylImage }) {
       });
       const data = await response.json();
       const randomTrack = data.items[Math.floor(Math.random() * data.items.length)].track;
-
+  
       const trackInfo = {
         artistName: randomTrack.artists[0]?.name,
         songTitle: randomTrack.name,
         imageUrl: randomTrack.album.images[0]?.url,
+        spotifyId: randomTrack.id,
       };
-
       setCenterImage(randomTrack.album.images[1]?.url);
       setArtistName(trackInfo.artistName);
       setSongTitle(trackInfo.songTitle);
       setImageUrl(trackInfo.imageUrl);
-
       // Save the song to localStorage
       const history = JSON.parse(localStorage.getItem('songHistory')) || [];
       history.push(trackInfo);
@@ -79,7 +77,7 @@ function Vinyl({ vinylImage }) {
     } catch (error) {
       console.error('Error fetching random track:', error);
     }
-  };
+  };  
 
   // Fetch access token on component mount
   useEffect(() => {
@@ -97,7 +95,7 @@ function Vinyl({ vinylImage }) {
   return (
     <div 
       className="vinyl-container" 
-      onClick={fetchRandomTrack} // Trigger fetching a new random song
+      onClick={fetchRandomTrack} 
     >
       <img src={vinylImage} alt="Vinyl" className="vinyl-image" />
       
