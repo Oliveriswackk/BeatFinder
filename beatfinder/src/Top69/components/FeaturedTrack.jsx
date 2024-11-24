@@ -38,6 +38,7 @@ function FeaturedTrack({ track }) {
         setIsPlaying(false);
       });
     }
+    // eslint-disable-next-line
   }, [track]);
 
   return (

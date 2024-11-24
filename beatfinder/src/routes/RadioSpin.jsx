@@ -2,6 +2,7 @@ import Navbar from '../components/Navbar/Navbar';
 import Background from '../Radio_Spin/componets/background.jsx';
 import Vinyl from '../Radio_Spin/componets/vinyl.jsx';
 import vinylImage from '../images/vinylImage.png';
+import HistorialCanc from '../Radio_Spin/componets/HistorialCanc.jsx';
 import { useEffect, useState } from 'react';
 import '../Styles/RadioSpin.css';
 
@@ -57,6 +58,7 @@ const RadioSpin = () => {
         <h1>Radio Spin</h1>
         <h2>Descubre canciones nuevas y reinventa tu gusto</h2>
       </div>
+      <HistorialCanc/>
     </div>
   );
 };
