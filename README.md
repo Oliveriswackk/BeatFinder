@@ -13,8 +13,6 @@ Modificaciones a realizar/Funciones a agregar para un funcionamiento correcto/me
 
 
 Artistas Destacados
-- Hacer una redirección a la pagina del artista cuando le hagan click en la imagen destacada
-    - Realizar pagina del artista o redireccionar a la pagina de Spotify
 - Agregar boton  de agregar a un carrito el cual guarde al artista (LocalStorage)
 
 Encuesta
