@@ -61,10 +61,21 @@ function Vinyl({ vinylImage }) {
       const data = await response.json();
       const randomTrack = data.items[Math.floor(Math.random() * data.items.length)].track;
 
+      const trackInfo = {
+        artistName: randomTrack.artists[0]?.name,
+        songTitle: randomTrack.name,
+        imageUrl: randomTrack.album.images[0]?.url,
+      };
+
       setCenterImage(randomTrack.album.images[1]?.url);
-      setArtistName(randomTrack.artists[0]?.name);
-      setSongTitle(randomTrack.name);
-      setImageUrl(randomTrack.album.images[0]?.url);
+      setArtistName(trackInfo.artistName);
+      setSongTitle(trackInfo.songTitle);
+      setImageUrl(trackInfo.imageUrl);
+
+      // Save the song to localStorage
+      const history = JSON.parse(localStorage.getItem('songHistory')) || [];
+      history.push(trackInfo);
+      localStorage.setItem('songHistory', JSON.stringify(history));
     } catch (error) {
       console.error('Error fetching random track:', error);
     }
@@ -80,6 +91,7 @@ function Vinyl({ vinylImage }) {
     if (accessToken) {
       fetchRandomTrack();
     }
+    // eslint-disable-next-line
   }, [accessToken]);
 
   return (
