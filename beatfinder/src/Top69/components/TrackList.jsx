@@ -74,6 +74,7 @@ function TrackList() {
 
   useEffect(() => {
     getSpotifyToken().then(fetchTracks);
+    // eslint-disable-next-line
   }, [token]);
 
   return (
