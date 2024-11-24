@@ -1,10 +1,10 @@
 .vinyl-container {
   position: absolute; 
   top: 87%; 
-  left: 28%;
+  left: 24%;
   transform: translate(-50%, -100%); 
-  width: 650px;
-  height: 650px;
+  width: 900px;
+  /* height: 650px; */
 }
 
 .vinyl-image {
@@ -31,6 +31,10 @@
   object-fit: cover;
 }
 
+.center-image:hover{
+cursor: pointer;
+}
+
 .vinyl-info {
   position: absolute;
   top: 73%;
@@ -38,16 +42,16 @@
   transform: translate(-50%, -50%);
   text-align: center;
   color: #fff;
-  width: 300px;
+  width: 400px;
 }
 
 .song-title {
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: bold;
   margin: 0;
 }
 
 .artist-name {
-  font-size: 18px;
+  font-size: 1.2rem;
   margin: 0;
 }
