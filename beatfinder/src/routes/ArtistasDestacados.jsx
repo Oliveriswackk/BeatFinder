@@ -48,7 +48,6 @@ const ArtistasDestacados = () => {
           ])
         ).values()
       );
-      
       const artistsData = await Promise.all(
         uniqueArtists.slice(3, 10).map(async (artist) => {
           const artistResponse = await fetch(
@@ -58,17 +57,17 @@ const ArtistasDestacados = () => {
             }
           );
           const artistData = await artistResponse.json();
-          
+      
           return {
             nombre: artistData.name,
             imagen: artistData.images[0]?.url || null,
             cancion: tracksData.items.find(
               item => item.track.artists[0].id === artist.id
-            )?.track.name || 'Unknown'
+            )?.track.name || 'Unknown',
+            spotifyId: artist.id, // Add Spotify artist ID here
           };
         })
       );
-
       const top3Artists = await Promise.all(
         uniqueArtists.slice(0, 3).map(async (artist) => {
           const artistResponse = await fetch(
@@ -78,16 +77,18 @@ const ArtistasDestacados = () => {
             }
           );
           const artistData = await artistResponse.json();
-          
+      
           return {
             nombre: artistData.name,
             imagen: artistData.images[0]?.url || null,
             cancion: tracksData.items.find(
               item => item.track.artists[0].id === artist.id
-            )?.track.name || 'Unknown'
+            )?.track.name || 'Unknown',
+            spotifyId: artist.id, // Add Spotify artist ID here
           };
         })
       );
+      
       
       setArtists(top3Artists);
       setMoreArtists(artistsData);
