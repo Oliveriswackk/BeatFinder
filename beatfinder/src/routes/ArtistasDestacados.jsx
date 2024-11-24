@@ -109,7 +109,12 @@ const ArtistasDestacados = () => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (<>
+      <Navbar />
+      <DestacadosBanner/>
+      <div>Loading...</div>
+    </>
+    );
   }
 
   return (

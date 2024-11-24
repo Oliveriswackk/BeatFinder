@@ -12,8 +12,16 @@ body {
 .banner {
     position: relative;
     width: 100vw;
-    height: 40em;
+    height: 60em;
     overflow: hidden;
+    
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+
 }
 
 .banner-background,
