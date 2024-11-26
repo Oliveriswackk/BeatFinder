@@ -5,12 +5,10 @@ function HistorialCanc() {
   const [history, setHistory] = useState([]);
 
   useEffect(() => {
-    // Load history from localStorage on component mount
     const storedHistory = JSON.parse(localStorage.getItem('songHistory')) || [];
     setHistory(storedHistory);
   }, []);
 
-  // Open Spotify page for the song in a new tab
   const openSongInSpotify = (track) => {
     const spotifyUrl = `https://open.spotify.com/track/${track.spotifyId}`;
     window.open(spotifyUrl, '_blank');
@@ -23,7 +21,7 @@ function HistorialCanc() {
           <div 
             key={index} 
             className="historial-item"
-            onClick={() => openSongInSpotify(track)} // Add click handler
+            onClick={() => openSongInSpotify(track)}
           >
             <img 
               src={track.imageUrl || '/placeholder.png'} 

@@ -32,7 +32,7 @@ const ArtistasDestacados = () => {
       
       const playlistId = '37i9dQZF1DXcBWIGoYBM5M';
       const tracksResponse = await fetch(
-        `https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=10`,
+        `https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=50`,
         {
           headers: { Authorization: `Bearer ${access_token}` },
         }
@@ -49,7 +49,7 @@ const ArtistasDestacados = () => {
         ).values()
       );
       const artistsData = await Promise.all(
-        uniqueArtists.slice(3, 10).map(async (artist) => {
+        uniqueArtists.slice(3, 50).map(async (artist) => {
           const artistResponse = await fetch(
             `https://api.spotify.com/v1/artists/${artist.id}`,
             {
@@ -64,7 +64,7 @@ const ArtistasDestacados = () => {
             cancion: tracksData.items.find(
               item => item.track.artists[0].id === artist.id
             )?.track.name || 'Unknown',
-            spotifyId: artist.id, // Add Spotify artist ID here
+            spotifyId: artist.id,
           };
         })
       );
@@ -84,7 +84,7 @@ const ArtistasDestacados = () => {
             cancion: tracksData.items.find(
               item => item.track.artists[0].id === artist.id
             )?.track.name || 'Unknown',
-            spotifyId: artist.id, // Add Spotify artist ID here
+            spotifyId: artist.id, 
           };
         })
       );

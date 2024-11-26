@@ -8,11 +8,9 @@ function Vinyl({ vinylImage }) {
   const [imageUrl, setImageUrl] = useState('');
   const [accessToken, setAccessToken] = useState('');
 
-  // Spotify API credentials
   const clientId = 'd52221bf672f4fa4849370f393f65ad5';
   const clientSecret = 'a65efe8d97884d7f830aab11ddc8f839';
 
-  // Function to get access token
   const fetchAccessToken = async () => {
     try {
       const response = await fetch('https://accounts.spotify.com/api/token', {
@@ -30,7 +28,6 @@ function Vinyl({ vinylImage }) {
     }
   };
 
-  // Function to fetch a random playlist
   const fetchRandomPlaylist = async () => {
     try {
       const response = await fetch('https://api.spotify.com/v1/browse/featured-playlists?limit=20', {
@@ -70,7 +67,6 @@ function Vinyl({ vinylImage }) {
       setArtistName(trackInfo.artistName);
       setSongTitle(trackInfo.songTitle);
       setImageUrl(trackInfo.imageUrl);
-      // Save the song to localStorage
       const history = JSON.parse(localStorage.getItem('songHistory')) || [];
       history.push(trackInfo);
       localStorage.setItem('songHistory', JSON.stringify(history));
@@ -79,12 +75,10 @@ function Vinyl({ vinylImage }) {
     }
   };  
 
-  // Fetch access token on component mount
   useEffect(() => {
     fetchAccessToken();
   }, []);
 
-  // Fetch a random track once the token is available
   useEffect(() => {
     if (accessToken) {
       fetchRandomTrack();

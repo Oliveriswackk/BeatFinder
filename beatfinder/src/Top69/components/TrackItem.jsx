@@ -3,9 +3,7 @@ import '../styles/TrackItem.css';
 
 const TrackItem = ({ position, track, onClick }) => {
   const addToCart = () => {
-    // Obtener los datos del carrito almacenado en LocalStorage
     const cart = JSON.parse(localStorage.getItem('playlist')) || [];
-    // Agregar la nueva canción si no existe en el carrito
     if (!cart.find(item => item.id === track.id)) {
       cart.push(track);
       localStorage.setItem('playlist', JSON.stringify(cart));
@@ -35,10 +33,9 @@ const TrackItem = ({ position, track, onClick }) => {
         <p className="track-artist">{track.artist}</p>
       </div>
       <button className="add-to-cart" onClick={(e) => { 
-        e.stopPropagation(); // Evita seleccionar el track al agregar al carrito
+        e.stopPropagation(); 
         addToCart(); 
       }}>
-        {/* Agregar a Playlist */}
         +
       </button>
     </div>
